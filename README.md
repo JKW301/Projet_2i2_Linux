@@ -1,4 +1,5 @@
 # Consignes et exercices du Projet
+>Mail de contact : nneveu@gmail.com
 
 ## Script_a
 Vous allez créer un premier script permettant de créer automatiquement des utilisateurs 
