@@ -26,6 +26,7 @@ Vous peuplerez leurs répertoires de 5 à 10 fichiers d'une taille aléatoire, p
 5Mo et 50Mo. Si vous lancez le script plusieurs fois, il ne doit pas recréer des utilisateurs qui 
 existent déjà (même login, même nom et même prénom).
 
+## Script_b
 - Vous créerez ensuite un script qui va afficher chaque utilisateur humain du système, son nom, 
 son prénom suivi de son login, avec ses groupes, en séparant son groupe primaire de ses groupes 
 secondaires. Vous afficherez aussi la taille de son répertoire personnel et s’il est sudoer ou pas.
@@ -46,7 +47,7 @@ groupe.
 -u nom : affiche toutes les informations sur l’utilisateur nom et seulement lui
 
 
-## Script_b
+## Script_c
 Vous allez créer un script permettant de contrôler les exécutables pour lesquels le SUID et/ou le 
 SGID est activé. Il permettra de générer une liste de ces fichiers et de la comparer, si elle existe, 
 avec la liste créée lors du précédent appel du script.
