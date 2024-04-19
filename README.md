@@ -5,7 +5,8 @@
 Vous allez créer un premier script permettant de créer automatiquement des utilisateurs 
 utilisables. Vous utiliserez un fichier source pour cette création dont chaque ligne aura la 
 structure suivante :
-prénom:nom:groupe1,groupe2,…:sudo:motdepasse
+>prénom:nom:groupe1,groupe2,…:sudo:motdepasse
+
 Avant tout, vous devez vérifier que le fichier a un format correct.
 
 - Le login sera généré automatiquement avec la première lettre du prénom suivie du nom. 
@@ -32,19 +33,18 @@ son prénom suivi de son login, avec ses groupes, en séparant son groupe primai
 secondaires. Vous afficherez aussi la taille de son répertoire personnel et s’il est sudoer ou pas.
 
 Exemple :
-Utilisateur : fsananes
-Prénom : Frédéric
-Nom : Sananes
-Groupe primaire : DirectionPédagogique
-Groupes secondaires : professeur, administration
-Répertoire personnel : 135Mo 213ko 12octets
-Sudoer : OUI
-Vous ajouterez des options à ce script :
--G groupe : affiche uniquement les informations des utilisateurs dont le groupe primaire est groupe.
--g groupe : affiche uniquement les informations des utilisateurs dont un des groupes secondaires est 
-groupe.
--s val : si val=0, affiche les informations des utilisateurs qui ne sont pas sudoers, si val=1, c’est l’inverse.
--u nom : affiche toutes les informations sur l’utilisateur nom et seulement lui
+<br><br>Utilisateur : fsananes
+<br>Prénom : Frédéric
+<br>Nom : Sananes
+<br>Groupe primaire : DirectionPédagogique
+<br>Groupes secondaires : professeur, administration
+<br>Répertoire personnel : 135Mo 213ko 12octets
+<br>Sudoer : OUI
+<br><br>Vous ajouterez des options à ce script :<br>
+-G groupe : affiche uniquement les informations des utilisateurs dont le groupe primaire est groupe.<br>
+-g groupe : affiche uniquement les informations des utilisateurs dont un des groupes secondaires est groupe.<br>
+-s val : si val=0, affiche les informations des utilisateurs qui ne sont pas sudoers, si val=1, c’est l’inverse.<br>
+-u nom : affiche toutes les informations sur l’utilisateur nom et seulement lui<br>
 
 
 ## Script_c
