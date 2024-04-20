@@ -1,0 +1,65 @@
+
+; <<>> DiG 9.16.44-Debian <<>> ns austerlitz
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 61759
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 82a6a1b65ccd26d4010000006623d30acca3599434c64d9b (good)
+;; QUESTION SECTION:
+;austerlitz.			IN	NS
+
+;; ANSWER SECTION:
+austerlitz.		86400	IN	NS	ns1.austerlitz.
+
+;; ADDITIONAL SECTION:
+ns1.austerlitz.		86400	IN	A	192.168.248.156
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Sat Apr 20 16:36:58 CEST 2024
+;; MSG SIZE  rcvd: 101
+
+
+; <<>> DiG 9.16.44-Debian <<>> austerlitz
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 39187
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 71902efbd1d02915010000006623d311953d495c147a77e3 (good)
+;; QUESTION SECTION:
+;austerlitz.			IN	A
+
+;; AUTHORITY SECTION:
+austerlitz.		86400	IN	SOA	ns1.austerlitz. admin.austerlitz. 2024042001 10800 3600 604800 86400
+
+;; Query time: 11 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Sat Apr 20 16:37:05 CEST 2024
+;; MSG SIZE  rcvd: 113
+
+
+; <<>> DiG 9.16.44-Debian <<>> -x 192.168.248.156
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 4668
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 4cf82938acbc750e010000006623d316335c043527190868 (good)
+;; QUESTION SECTION:
+;156.248.168.192.in-addr.arpa.	IN	PTR
+
+;; ANSWER SECTION:
+156.248.168.192.in-addr.arpa. 86400 IN	PTR	ns1.austerlitz.
+
+;; Query time: 7 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Sat Apr 20 16:37:10 CEST 2024
+;; MSG SIZE  rcvd: 113

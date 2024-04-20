@@ -1,0 +1,16 @@
+;
+; Fichier de zone pour la résolution inverse de l'adresse IP 192.168.248.156
+;
+$TTL 1d
+@   IN  SOA ns1.austerlitz. admin.austerlitz. (
+             2024042001  ; Serial
+             3h          ; Refresh every 3 hours
+             1h          ; Retry every 1 hour
+             1w          ; Expire after 1 week
+             1d )        ; Minimum TTL of 1 day
+
+; Définition des serveurs de noms
+        IN  NS  ns1.austerlitz.
+
+; Définition des enregistrements PTR
+156     IN  PTR ns1.austerlitz.
