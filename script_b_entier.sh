@@ -7,8 +7,8 @@ afficher_informations_utilisateur() {
     prenom=$(getent passwd "$utilisateur" | cut -d: -f5 | cut -d' ' -f1)
     nom=$(getent passwd "$utilisateur" | cut -d: -f5 | cut -d' ' -f2)
     login="$utilisateur$utilisateur"
-    groupe_primaire=$(id -gn "$utilisateur")
-    groupes_secondaires=$(id -Gn "$utilisateur" | sed "s/$groupe_primaire//;s/ $//")
+    groupe_primaire=$(id -Gn "$utilisateur")
+    groupes_secondaires=$(id -gn "$utilisateur" | sed "s/$groupe_primaire//;s/ $//")
     repertoire=$(du -sb "/home/$utilisateur" 2>/dev/null | cut -f1)
 
     formatted_output=()
