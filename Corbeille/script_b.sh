@@ -1,11 +1,10 @@
 #!/bin/bash
 
 #set -x
-# Fonction pour afficher les informations d'un utilisateur
+
 afficher_informations_utilisateur() {
     utilisateur=$1
 
-    # Récupération des informations sur l'utilisateur
     prenom=$(getent passwd "$utilisateur" | cut -d: -f5 | cut -d' ' -f1)
     nom=$(getent passwd "$utilisateur" | cut -d: -f5 | cut -d' ' -f2)
     login="$utilisateur$utilisateur"
@@ -13,11 +12,7 @@ afficher_informations_utilisateur() {
     groupes_secondaires=$(id -Gn "$utilisateur" | sed "s/$groupe_primaire//;s/ $//")
     repertoire=$(du -sh "/home/$utilisateur" | cut -f1)
     sudoer=$(if sudo grep -q "^$utilisateur" /etc/sudoers /etc/sudoers.d/* 2>/dev/null ; then echo "OUI"; else echo "NON"; fi)
-
-
-    
-    # sudo -lU debian >/dev/null 2>&1 && echo "debian est un sudoer" || echo "debian n'est pas un sudoer"
-    # Affichage des informations
+   
     echo "+--------------------"
     echo "Utilisateur : $login"
     echo "Prénom : $prenom"
@@ -29,12 +24,10 @@ afficher_informations_utilisateur() {
     echo ""
 }
 
-# Options par défaut
 groupe=""
 groupe_secondaire=""
 sudoer=""
 
-# Traitement des options
 while getopts ":G:g:s:u:" option; do
     case $option in
         G) groupe="$OPTARG";;
@@ -55,11 +48,6 @@ while getopts ":G:g:s:u:" option; do
     esac
 done
 
-
-
-
-
-# Affichage des informations pour chaque utilisateur humain
 while IFS=: read -r utilisateur _ _ _ _ _ _; do
     if [ "$(id -u "$utilisateur")" -ge 1000 ]; then
         if [ -n "$groupe" ] && [ "$groupe" != "$(id -gn "$utilisateur")" ]; then

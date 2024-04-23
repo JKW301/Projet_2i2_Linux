@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# Fonction pour afficher les informations d'un utilisateur
+#set -x
 afficher_informations_utilisateur() {
     utilisateur=$1
 
-    # Récupération des informations sur l'utilisateur
     prenom=$(getent passwd "$utilisateur" | cut -d: -f5 | cut -d' ' -f1)
     nom=$(getent passwd "$utilisateur" | cut -d: -f5 | cut -d' ' -f2)
     login="$utilisateur$utilisateur"
@@ -12,20 +11,17 @@ afficher_informations_utilisateur() {
     groupes_secondaires=$(id -Gn "$utilisateur" | sed "s/$groupe_primaire//;s/ $//")
     repertoire=$(du -sb "/home/$utilisateur" 2>/dev/null | cut -f1)
 
-    # Formatage de la taille du répertoire
     formatted_output=()
     while [[ ${#repertoire} -gt 3 ]]; do
         part="${repertoire: -3}" # On prend les trois derniers chiffres
-        repertoire="${repertoire%???}" # On supprime les trois derniers caractères
-        formatted_output=(" $part" "${formatted_output[@]}") # On ajoute ces trois chiffres au début du tableau
+        repertoire="${repertoire%???}" # supprime les trois derniers caractères
+        formatted_output=(" $part" "${formatted_output[@]}") # ajoute ces trois chiffres au début du tableau
     done
 
-    # Ajout de la taille restante si elle est inférieure à 1000 octets
     if [[ ${#repertoire} -gt 0 ]]; then
         formatted_output=(" $repertoire" "${formatted_output[@]}")
     fi
 
-    # Affichage de la taille sous forme de séries de trois chiffres sur une seule ligne
     taille_repertoire=""
     for index in "${!formatted_output[@]}"; do
         case $index in
@@ -43,7 +39,6 @@ afficher_informations_utilisateur() {
 
     sudoer=$(if sudo grep -q "^$utilisateur" /etc/sudoers /etc/sudoers.d/* 2>/dev/null ; then echo "OUI"; else echo "NON"; fi)
 
-    # Affichage des informations
     echo "+--------------------"
     echo "Utilisateur : $login"
     echo "Prénom : $prenom"
@@ -55,12 +50,10 @@ afficher_informations_utilisateur() {
     echo ""
 }
 
-# Options par défaut
 groupe=""
 groupe_secondaire=""
 sudoer=""
 
-# Traitement des options
 while getopts ":G:g:s:u:" option; do
     case $option in
         G) groupe="$OPTARG";;
@@ -81,7 +74,6 @@ while getopts ":G:g:s:u:" option; do
     esac
 done
 
-# Affichage des informations pour chaque utilisateur humain
 while IFS=: read -r utilisateur _ _ _ _ _ _; do
     if [ "$(id -u "$utilisateur")" -ge 1000 ]; then
         if [ -n "$groupe" ] && [ "$groupe" != "$(id -gn "$utilisateur")" ]; then
